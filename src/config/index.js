@@ -1,6 +1,6 @@
-import path from 'path'
-import dotenv from 'dotenv'
-import pkg from './../../package.json'
+const path = require('path')
+const dotenv = require('dotenv')
+const pkg = require('./../../package.json')
 
 const envRootPath = path.resolve(process.cwd(), '.env');
 const config = {};
@@ -9,11 +9,12 @@ config.path = `${envRootPath}`;
 
 dotenv.config(config);
 
-export default {
+module.exports = {
   port: process.env.PORT,
   host: process.env.HOST,
   basePath: process.env.BASE_PATH,
   mongoUri: process.env.MONGO_URI,
+  databaseName: process.env.DATABASE_NAME,
   financeServiceUrl: process.env.FINANCE_SERVICE_URL,
   financeServiceToken: process.env.FINANCE_SERVICE_TOKEN,
   SALT_ROUNDS: process.env.SALT_ROUNDS,

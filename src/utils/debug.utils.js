@@ -1,4 +1,4 @@
-import debug from 'debug'
+const debug = require('debug')
 
 const log = (message, ...opt) => {
   if (opt.length > 0) {
@@ -27,6 +27,6 @@ const error = (message, ...opt) => {
   }
 }
 
-export default {
+module.exports = {
   log, error
 }
