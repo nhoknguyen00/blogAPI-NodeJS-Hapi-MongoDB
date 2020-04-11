@@ -4,20 +4,22 @@ const userSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true
+      required: [true, 'firstName is required']
     },
     lastName: {
       type: String,
-      required: true
+      required: [true, 'lastName is required']
     },
     age: {
       type: Number,
+      min: [1, 'Age of user cannot be less than 1'],
+      max: [100, 'Age of user cannot be greater than 100'],
       required: true
     },
     occupation: {
       type: String,
       default: false,
-      required: true
+      required: [true, 'occupation is required']
     },
     createdAt: {
       type: Date,

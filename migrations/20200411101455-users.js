@@ -1,4 +1,5 @@
 const debug = require('../src/utils/debug.utils')
+const ids = require('../mongoObjectIdSeeds')
 
 module.exports = {
   async up(db, client) {
@@ -8,6 +9,7 @@ module.exports = {
     // await db.collection('albums').updateOne({artist: 'The Beatles'}, {$set: {blacklisted: true}});
     try {
       await db.collection('users').insertMany([{
+        _id: ids.userIds[0],
         firstName: 'Lưu',
         lastName: 'Tuấn Nguyên',
         age: 22,
@@ -15,6 +17,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
+        _id: ids.userIds[1],
         firstName: 'Mike D.',
         lastName: 'Tuấn Nguyên',
         age: 24,
@@ -32,6 +35,6 @@ module.exports = {
     // TODO write the statements to rollback your migration (if possible)
     // Example:
     // await db.collection('albums').updateOne({artist: 'The Beatles'}, {$set: {blacklisted: false}});
-    await db.users.drop()
+    await db.collection('users').drop()
   }
 };
