@@ -12,7 +12,7 @@ export const connect = () => {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     poolSize: 10
   }, err => {
     if (err) {

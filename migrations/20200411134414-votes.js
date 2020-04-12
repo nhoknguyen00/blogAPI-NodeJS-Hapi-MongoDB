@@ -91,6 +91,11 @@ module.exports = {
     // TODO write the statements to rollback your migration (if possible)
     // Example:
     // await db.collection('albums').updateOne({artist: 'The Beatles'}, {$set: {blacklisted: false}});
-    db.collection('votes').drop()
+    try {
+      await db.collection('votes').drop()
+    }
+    catch (err) {
+      debug.error(err)
+    }
   }
 };
